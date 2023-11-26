@@ -1,2 +1,2 @@
 # WebpageScreensaver
-webpage with slideshow for screensaver
+webpage with slideshow as screensaver
