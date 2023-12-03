@@ -1,35 +1,12 @@
 <?php
-$title = "SlideShow"; //Title of pagina
-$refresh_in_sec = '25'; //Number of seconds for next image
+$title = "SlideShow"; //Title van pagina
+$refresh_in_sec = '25'; //Aantal seconden voor volgende afbeelding
 
-$dir = 'images/'; //Directory where the images are located
-$max_width = ''; //Max screen width
-$max_height = ''; //Max screen height
+$dir = 'images/'; //Directory waar de afbeeldingen staat
+$max_width = ''; //Max scherm breedte in pixels
+$max_height = ''; //Max scherm hoogte in pixels
 
-
-function getsize($img){
-  global $max_width;
-  global $max_height;
-  list($width_img, $height_img) = getimagesize($img);
-  if($width_img > $max_width){
-    $width =  $max_width.'px';
-  } else {
-    $width =  $width_img.'px';
-  }
-  if($height_img > $max_height){
-    $height =  $max_height.'px';
-  } else {
-    $height =  $height_img.'px';
-  }
-  return " width=\"".$width."\" height=\"".$height."\" ";
-}
-function getAllImgs($dir) {
-  $resizedFilePath = array();
-    foreach (glob($dir . '*.{jpg,jpeg,png,gif}', GLOB_BRACE) as $filename) {
-        array_push($resizedFilePath, $filename);
-    }
-  return $resizedFilePath;
-}
+include('./functions.php');
 
 $allimages = getAllImgs($dir);
 shuffle($allimages);
